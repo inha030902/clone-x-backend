@@ -1,9 +1,11 @@
 {
   "info": {
-    "_postman_id": "7c1f3b2a-5d4e-4f6a-9b8c-1a2b3c4d5e6f",
+    "_postman_id": "a076112c-7992-4a70-b363-0d3ca02c4b60",
     "name": "clone-x-backend",
     "description": "Feed API를 만들고 Postman으로 테스트하기",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58461603",
+    "_collection_link": "https://go.postman.co/collection/58461603-a076112c-7992-4a70-b363-0d3ca02c4b60?source=collection_link"
   },
   "item": [
     {
@@ -39,8 +41,12 @@
             "header": [],
             "url": {
               "raw": "{{baseUrl}}/feed",
-              "host": ["{{baseUrl}}"],
-              "path": ["feed"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "feed"
+              ]
             }
           },
           "response": [
@@ -51,14 +57,24 @@
                 "header": [],
                 "url": {
                   "raw": "{{baseUrl}}/feed",
-                  "host": ["{{baseUrl}}"],
-                  "path": ["feed"]
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "feed"
+                  ]
                 }
               },
               "status": "OK",
               "code": 200,
               "_postman_previewlanguage": "json",
-              "header": [{ "key": "Content-Type", "value": "application/json; charset=utf-8" }],
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                }
+              ],
+              "cookie": [],
               "body": "[\n  {\n    \"id\": 1,\n    \"userId\": 1,\n    \"content\": \"첫 번째 피드입니다.\",\n    \"createdAt\": \"2026-09-24T00:00:00.000Z\"\n  },\n  {\n    \"id\": 2,\n    \"userId\": 2,\n    \"content\": \"Nest.js로 만든 Feed API 테스트 중!\",\n    \"createdAt\": \"2026-09-24T01:00:00.000Z\"\n  }\n]"
             }
           ]
@@ -88,8 +104,12 @@
             "header": [],
             "url": {
               "raw": "{{baseUrl}}/users",
-              "host": ["{{baseUrl}}"],
-              "path": ["users"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
             }
           },
           "response": []
@@ -98,6 +118,9 @@
     }
   ],
   "variable": [
-    { "key": "baseUrl", "value": "http://localhost:3000", "type": "string" }
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
   ]
 }
