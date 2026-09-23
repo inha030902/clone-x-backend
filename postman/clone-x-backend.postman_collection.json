@@ -1,0 +1,103 @@
+{
+  "info": {
+    "_postman_id": "7c1f3b2a-5d4e-4f6a-9b8c-1a2b3c4d5e6f",
+    "name": "clone-x-backend",
+    "description": "Feed API를 만들고 Postman으로 테스트하기",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Feed",
+      "item": [
+        {
+          "name": "Get Feed List",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('Response is an array', function () {",
+                  "  pm.expect(pm.response.json()).to.be.an('array');",
+                  "});",
+                  "",
+                  "pm.test('Each feed has id, userId, content, createdAt', function () {",
+                  "  pm.response.json().forEach(function (feed) {",
+                  "    pm.expect(feed).to.have.all.keys('id', 'userId', 'content', 'createdAt');",
+                  "  });",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/feed",
+              "host": ["{{baseUrl}}"],
+              "path": ["feed"]
+            }
+          },
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/feed",
+                  "host": ["{{baseUrl}}"],
+                  "path": ["feed"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json; charset=utf-8" }],
+              "body": "[\n  {\n    \"id\": 1,\n    \"userId\": 1,\n    \"content\": \"첫 번째 피드입니다.\",\n    \"createdAt\": \"2026-09-24T00:00:00.000Z\"\n  },\n  {\n    \"id\": 2,\n    \"userId\": 2,\n    \"content\": \"Nest.js로 만든 Feed API 테스트 중!\",\n    \"createdAt\": \"2026-09-24T01:00:00.000Z\"\n  }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Get All Users",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["users"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000", "type": "string" }
+  ]
+}
